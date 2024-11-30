@@ -12,6 +12,10 @@ const port = 5000;
 
 // Enable CORS for all routes
 app.use(cors()); // Use CORS middleware
+app.use(cors({
+  origin: ['https://frontend-url.onrender.com'], // Update with your frontend URL
+  credentials: true,
+}));
 
 app.use(express.json()); // Middleware to parse JSON bodies
 
