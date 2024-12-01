@@ -75,8 +75,6 @@ const styles = {
 };
 
 const Login = () => {
-  const API_BASE_URL = "https://backend-dash-x1ez.onrender.com"; // Replace with the live URL
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -93,7 +91,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, { email, password });
+      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
 
       if (response.data.authToken) {
         localStorage.setItem('token', response.data.authToken);

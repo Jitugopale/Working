@@ -124,8 +124,6 @@ const styles = {
 
 
 const Register = () => {
-  const API_BASE_URL = "https://backend-dash-x1ez.onrender.com"; // Replace with the live URL
-
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fname: "",
@@ -161,7 +159,7 @@ const Register = () => {
     setLoading(true); 
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/api/auth/createUser`,
+        "http://localhost:5000/api/auth/createUser",
         formData
       );
 
