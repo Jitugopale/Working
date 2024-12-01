@@ -1,27 +1,27 @@
 const connectToMongo = require('./db');
 const cors = require('cors'); // Import CORS
-require('dotenv').config();
+require('dotenv').config(); // Load environment variables
 
-connectToMongo();
+connectToMongo(); // Connect to MongoDB
+
 const express = require('express');
-require('dotenv').config();
-
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000; // Use PORT from .env or default to 5000
 
-
-// Enable CORS for all routes
-app.use(cors()); // Use CORS middleware
+// Enable CORS for specific origins
 app.use(cors({
-  origin: ['https://frontend-url.onrender.com'], // Update with your frontend URL
-  credentials: true,
+  origin: ['https://frontend-url.onrender.com'], // Replace with your actual frontend URL
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true, // Allow cookies and credentials
 }));
 
-app.use(express.json()); // Middleware to parse JSON bodies
+// Middleware to parse JSON bodies
+app.use(express.json());
 
 // Available Routes
 app.use('/api/auth', require('./routes/auth'));
 
+// Start the server
 app.listen(port, () => {
-  console.log(`iNotebook backend listening on port http://localhost:${port}`);
+  console.log(`Backend listening at http://localhost:${port}`);
 });

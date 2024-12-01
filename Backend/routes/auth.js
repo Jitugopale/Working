@@ -6,7 +6,7 @@ const { body, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchUser');
 
-const JWT_SECRET = process.env.JWT_SECRET; // Use environment variable for secret
+const JWT_SECRET = process.env.JWT_SECRET || 'Romanisagood$boy'; // Use environment variable for secret
 
 // Route 1: Create a User using POST "/api/auth/createUser" - No login required
 router.post(
