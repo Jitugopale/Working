@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000; // Use PORT from .env or default to 5000
 
 // Enable CORS for specific origins
 app.use(cors({
-  origin: ["https://your-frontend-domain.com", "https://your-backend-domain.com"],
+  origin: ['https://frontend-url.onrender.com','https://backend-dash-x1ez.onrender.com'], // Replace with your actual frontend URL
   methods: "GET,POST,PUT,DELETE",
   credentials: true, // Allow cookies and credentials
 }));
